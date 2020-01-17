@@ -1,4 +1,6 @@
-def longestPalindrome(s):
+# try 1
+# TODO : need to fix for some testcases 
+def longestPalindrome1(s):
     l = len(s)
     # print("len of str : " + str(l))
     maxPali = ""
@@ -36,4 +38,43 @@ def longestPalindrome(s):
 
     return maxPali
 
-print(longestPalindrome("sasfgsrtf"))
+# try 2
+def longestPalindrome2(s):
+    longPali = ""
+        
+    for i in range(len(s)):
+        for j in range(len(s), i, -1):
+            if len(longPali) < j-i and s[i:j] == s[i:j][::-1]:
+                longPali = s[i:j]
+                break
+    return longPali
+
+# try 3
+def longestPalindrome3(s):
+    strlen = len(s)
+    # if length of string < 2 or s is palindrome already
+    if strlen < 2 or s == s[::-1]:
+        return s
+    start, maxlen = 0, 1
+    for i in range(strlen):
+        oddstart  = i - maxlen - 1
+        evenstart = i - maxlen
+        odd  = s[oddstart:i+1]  # len(odd)  = maxlen + 2
+        even = s[evenstart:i+1] # len(even) = maxlen + 1
+        print(i)
+        print("odd : {}".format(odd))
+        print("even : {}".format(even))
+            #i = 2
+            #maxlen = 1
+            #start = 0
+            #odd = s[2-1-1:3]….bab
+            #even = s[1:3]…ab
+        if oddstart >= 0 and odd == odd[::-1]:
+            start = oddstart
+            maxlen += 2
+        elif evenstart >= 0 and even == even[::-1]:
+            start = evenstart
+            maxlen += 1
+    return s[start:start+maxlen]
+
+print(longestPalindrome3("babad"))
