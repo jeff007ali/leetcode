@@ -1,4 +1,4 @@
-// Brute force
+#  Brute force
 def search0(nums, target):
     l = len(nums)
     for i in range(l):
@@ -8,7 +8,7 @@ def search0(nums, target):
     return -1
 
 
-// Optimized method
+#  Optimized method
 def search(nums, target):
     if not nums:
         return -1
