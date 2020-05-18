@@ -54,27 +54,27 @@ def findAnagrams1(s, p):
 
     return ans
 
-# Using dict with all alphabets characters
+# Using list with 26(alphabets characters) length 
 def findAnagrams2(s, p):
     if len(s) < len(p):
         return []
 
-    pDict = [0]*26
-    sDict = [0]*26
+    pList = [0]*26
+    sList = [0]*26
     res = []
 
     for i in range(len(p)):
-        pDict[ord(p[i])-ord('a')] += 1
-        sDict[ord(s[i])-ord('a')] += 1
+        pList[ord(p[i])-ord('a')] += 1
+        sList[ord(s[i])-ord('a')] += 1
 
-    if pDict == sDict:
+    if pList == sList:
         res.append(0)
 
     for i in range(1, len(s)-len(p)+1):
-        sDict[ord(s[i-1])-ord('a')] -= 1
-        sDict[ord(s[i+len(p)-1])-ord('a')] += 1
+        sList[ord(s[i-1])-ord('a')] -= 1
+        sList[ord(s[i+len(p)-1])-ord('a')] += 1
 
-        if pDict == sDict:
+        if pList == sList:
             res.append(i)
 
     return res
@@ -105,5 +105,5 @@ def findAnagrams3(s, p):
     return res
 
 
-print(findAnagrams1("cbaebabacd", "abc"))
-print(findAnagrams1("abab", "ab"))
+print(findAnagrams2("cbaebabacd", "abc"))
+print(findAnagrams2("abab", "ab"))
