@@ -6,6 +6,7 @@
 # 5. After update, check if any node is having ZERO incoming arrow, then again add that node to stack
 # 6. After every element pop, increase COUNT by one
 # 7. Compare COUNT and num of courses
+# Reference - https://www.youtube.com/watch?v=0LjVxtLnNOk
 
 def canFinish(numCourses, prerequisites):
     inDegree = [0] * numCourses
