@@ -1,3 +1,5 @@
+# Reference - https://leetcode.com/problems/two-city-scheduling/discuss/300784/4-lines-of-Python-with-explanation
+
 def twoCitySchedCost(costs):
     costs.sort(key=lambda cost: cost[0] - cost[1])
     costs_for_A = sum([cost[0] for cost in costs[:len(costs) // 2]])
