@@ -1,4 +1,5 @@
-# Using heapq 
+# Using heapq and nlargest
+# nlargest(k, iterable, key = fun) :- This function is used to return the k largest elements from the iterable specified and satisfying the key if mentioned.
 import heapq
 from collections import Counter
 def topKFrequent(nums, k):
@@ -10,6 +11,7 @@ def topKFrequent(nums, k):
     return heapq.nlargest(k, count.keys(), key=count.get)
 
 # Using counter and sorted
+# Sorted(iterable, key = fun, reverse) sorts any sequence (list, tuple) and always returns a list with the elements in sorted manner, without modifying the original sequence.
 def topKFrequent1(nums, k):
     # count = Counter(nums)
     count={}
