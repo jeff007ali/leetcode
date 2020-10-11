@@ -1,4 +1,8 @@
+# Same as - https://leetcode.com/problems/non-overlapping-intervals/
+# Same as - https://leetcode.com/problems/merge-intervals/
+
 def findMinArrowShots(points):
+    # sort with end
     points = sorted(points, key=lambda p: p[1])
     res = 0
     end = -float('inf')
